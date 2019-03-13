@@ -35,8 +35,11 @@ public class UI extends PApplet
     public void setup()
     {
         b = new Button(this, 50, 50, 100, 50, "I am a button");
-        mc = new MovingCircle(this, width / 2, height / 2, 50);
+        mc = new MovingCircle(this, width / 2, height * .75f, 50);
+        radar = new Radar(this, 1, width / 2, height / 2, 100);
     }
+
+    Radar radar;
 
     public void draw()
     {
@@ -45,6 +48,9 @@ public class UI extends PApplet
 
         mc.update();
         mc.render();
+
+        radar.update();
+        radar.render();
 
         if (checkKey(LEFT))
         {
