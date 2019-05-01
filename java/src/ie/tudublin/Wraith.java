@@ -140,7 +140,7 @@ public class Wraith extends GameObject
             ellapsed = 0;
         }
         ellapsed += sc.timeDelta;
-        sc.text("Ellapsed: "+ ellapsed, 10, 200);
+        //sc.text("Ellapsed: "+ ellapsed, 10, 200);
     }
 
     /**

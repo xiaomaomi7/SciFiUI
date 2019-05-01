@@ -30,7 +30,13 @@ public class Missile extends GameObject
             if (dist < w.size / 2 && dist > 0)
             {
                 //System.out.println(sc.wraith.getPos() + " " + pos);
-                w.setHealth(w.getHealth() - 1);
+                w.setHealth(w.getHealth() - 7);
+                if (w.getHealth() <= 0)
+                {
+                    sc.scoreT +=1;
+                    sc.gameObjects.remove(w);
+                    sc.phoneixO.remove(w);
+                }
                 sc.gameObjects.remove(this);
             }
             
@@ -53,7 +59,7 @@ public class Missile extends GameObject
             sc.gameObjects.remove(this);
         }
         alive += sc.timeDelta;
-        if (alive >= 5.0)
+        if (alive >= 10.0)
         {
             sc.gameObjects.remove(this);
         }
