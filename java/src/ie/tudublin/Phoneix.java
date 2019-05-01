@@ -11,7 +11,7 @@ public class Phoneix extends GameObject
     public int fireRate;
     private float toPass;
     private float ellapsed;
-    private int health = 100;
+    private int health = sc.pHealth;
     private ArrayList<PVector> waypoints = new ArrayList<PVector>(); 
 
     public Phoneix(SC sc, float x, float y, float speed, float size)
@@ -69,7 +69,7 @@ public class Phoneix extends GameObject
             sc.stroke(255, 0, 0);
             //sc.line(a.x, a.y, b.x, b.y);
         }
-        sc.fill(0);    
+        sc.fill(255);    
         sc.text("hp:" + health, pos.x + 50, pos.y);
     }
 

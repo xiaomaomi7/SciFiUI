@@ -11,10 +11,11 @@ public class Beam extends GameObject
 
     public void render()
     {
+        sc.stroke(127,sc.random(255),sc.random(255));
         sc.pushMatrix();
         sc.translate(pos.x, pos.y);
         sc.rotate(rotation);
-        sc.line(0, -5, 0, 5);
+        sc.line(0, -7, 0, 7);
         sc.popMatrix();
     }
 
@@ -30,12 +31,13 @@ public class Beam extends GameObject
             if (dist < w.size / 2 && dist > 0)
             {
                 //System.out.println(sc.wraith.getPos() + " " + pos);
-                w.setHealth(w.getHealth() - 6);
+                w.setHealth(w.getHealth() - (sc.pAttack-sc.tArmor));
                 if (w.getHealth() <= 0)
                 {
                     sc.scoreP +=1;
                     sc.gameObjects.remove(w);
                     sc.wraithO.remove(w);
+                    sc.tSupply -= 2;
                 }
                 sc.gameObjects.remove(this);
             }

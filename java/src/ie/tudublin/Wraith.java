@@ -11,7 +11,7 @@ public class Wraith extends GameObject
     public int fireRate;
     private float toPass;
     private float ellapsed;
-    private int health = 100;
+    private int health = sc.tHealth;
     private ArrayList<PVector> waypoints = new ArrayList<PVector>(); 
 
     public Wraith(SC sc, float x, float y, float speed, float size)
@@ -20,6 +20,7 @@ public class Wraith extends GameObject
         this.size = size;
         fireRate = 1;
         toPass = 1 / (float) fireRate;
+        
 
         for(int i = 0 ; i < 5 ; i ++)
         {
@@ -37,7 +38,7 @@ public class Wraith extends GameObject
         sc.pushMatrix();
         sc.translate(pos.x, pos.y);
         sc.rotate(rotation-1.5f);
-        sc.stroke(0, 0, 255);
+        sc.stroke(255, 0, 0);
         float halfSize = size / 2;
         sc.noFill();
         sc.rect(-(halfSize / 2),-(halfSize / 8), size * 5 / 8, halfSize / 4, halfSize);
@@ -113,7 +114,7 @@ public class Wraith extends GameObject
             sc.stroke(255, 0, 0);
             //sc.line(a.x, a.y, b.x, b.y);
         }
-        sc.fill(0);    
+        sc.fill(255);    
         sc.text("hp:" + health, pos.x + 50, pos.y);
     }
 

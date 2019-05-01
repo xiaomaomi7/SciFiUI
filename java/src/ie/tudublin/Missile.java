@@ -11,10 +11,14 @@ public class Missile extends GameObject
 
     public void render()
     {
+        sc.stroke(255);
         sc.pushMatrix();
         sc.translate(pos.x, pos.y);
         sc.rotate(rotation);
         sc.line(0, -5, 0, 5);
+        sc.stroke(sc.random(255),0,0);
+        sc.fill(255,0,0);
+        sc.rect(0,5, 2, 2);
         sc.popMatrix();
     }
 
@@ -30,12 +34,13 @@ public class Missile extends GameObject
             if (dist < w.size / 2 && dist > 0)
             {
                 //System.out.println(sc.wraith.getPos() + " " + pos);
-                w.setHealth(w.getHealth() - 7);
+                w.setHealth(w.getHealth() - (sc.tAttack-sc.pArmor) );
                 if (w.getHealth() <= 0)
                 {
                     sc.scoreT +=1;
                     sc.gameObjects.remove(w);
                     sc.phoneixO.remove(w);
+                    sc.pSupply -= 2;
                 }
                 sc.gameObjects.remove(this);
             }
