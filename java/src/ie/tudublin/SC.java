@@ -45,7 +45,6 @@ public class SC extends PApplet
         return keys[c] || keys [Character.toUpperCase(c)];
     }
     public void mousePressed() {
-        text("clicked", width /2 - 400 , 150);
         if (mouseX >= 200 && mouseX <= 300 && tMins >= 100){ 
             if (mouseY >= (height * 5 / 7 + 75) && mouseY <= (height * 5 / 7 + 125)) {
                 tAttack++;
@@ -61,7 +60,7 @@ public class SC extends PApplet
                 tMins -=100;
             }
         } 
-        if (mouseX >=  (width * 8 /10 + 200) && mouseX <= ( width * 8 /10 + 300) && tMins >= 100){ 
+        if (mouseX >=  (width * 8 /10 + 200) && mouseX <= ( width * 8 /10 + 300) && pMins >= 100){ 
             if (mouseY >= (height * 5 / 7 + 75) && mouseY <= (height * 5 / 7 + 125)) {
                 pAttack++;
                 pMins -=100;
@@ -77,6 +76,45 @@ public class SC extends PApplet
             }
         } 
     }
+
+public void mouseMoved() {
+        textAlign(CENTER,CENTER);
+        int n1 = width / 5;
+        int n2 = height * 5 / 7;
+        int n3 = width * 3 / 5;
+        int n4 = height * 2 / 7;
+        if (mouseX >= 200 && mouseX <= 300){ 
+            if (mouseY >= (height * 5 / 7 + 75) && mouseY <= (height * 5 / 7 + 125)) {
+                textSize(100); fill(random(255),random(255),random(255)); 
+                text("Attack + 1, Cost 100 mins", n1, n2, n3, n4);
+            } else if (mouseY >= (height * 5 / 7 + 175) && mouseY <= (height * 5 / 7 + 225)){
+                textSize(100); fill(random(255),random(255),random(255));
+                text("Armor + 1, Cost 100 mins",n1, n2, n3, n4);
+            } else if (mouseY >= (height * 5 / 7 + 275) && mouseY <= (height * 5 / 7 + 325)){
+                textSize(100); fill(random(255),random(255),random(255));
+                text("Hit Point + 15, Cost 100 mins", n1, n2, n3, n4);
+            } else if (mouseY >= (height * 5 / 7 + 375) && mouseY <= (height * 5 / 7 + 425)){
+                textSize(100); fill(random(255),random(255),random(255));
+                text("Supply limit + 5, Cost 100 mins", n1, n2, n3, n4);
+            }
+        } 
+        if (mouseX >=  (width * 8 /10 + 200) && mouseX <= ( width * 8 /10 + 300)){ 
+            if (mouseY >= (height * 5 / 7 + 75) && mouseY <= (height * 5 / 7 + 125)) {
+                textSize(100); fill(random(255),random(255),random(255));
+                text("Attack + 1, Cost 100 mins", n1, n2, n3, n4);
+            } else if (mouseY >= (height * 5 / 7 + 175) && mouseY <= (height * 5 / 7 + 225)){
+                textSize(100); fill(random(255),random(255),random(255));
+                text("Armor + 1, Cost 100 mins", n1, n2, n3, n4);
+            } else if (mouseY >= (height * 5 / 7 + 275) && mouseY <= (height * 5 / 7 + 325)){
+                textSize(100); fill(random(255),random(255),random(255));
+                text("Hit Point + 15, Cost 100 mins", n1, n2, n3, n4);
+            } else if (mouseY >= (height * 5 / 7 + 375) && mouseY <= (height * 5 / 7 + 425)){
+                textSize(100); fill(random(255),random(255),random(255));
+                text("Supply limit + 5, Cost 100 mins", n1, n2, n3, n4);
+            }
+        } 
+        textAlign(LEFT);
+      }
     public void settings()
     {
         size(2500, 1500);        
@@ -129,7 +167,6 @@ public class SC extends PApplet
         textSize(100);
         fill(255);
         text("Starcraft II", width /2 - 200 , 150);
-        text(mouseX +","+ mouseY, width /2 + 200 , 150);
         textSize(20);
         fill(255);
         text("Mineral: " + tMins, 50, 50);
@@ -166,6 +203,7 @@ public class SC extends PApplet
             textAlign(LEFT);
         }
         update();
+        mouseMoved();
     }   
     public void update(){
         alive += timeDelta;
