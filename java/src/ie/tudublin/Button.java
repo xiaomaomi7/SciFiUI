@@ -23,9 +23,10 @@ public class Button
 
     public void render()
     {
+        sc.textSize(20);
         sc.noFill();
         sc.stroke(255);
-        sc.rect(x, y, width, height);
+        sc.rect(x, y, width, height,7);
         sc.fill(255);
         sc.textAlign(PApplet.CENTER, PApplet.CENTER);
         sc.text(text, x + width * 0.5f, y + height * 0.5f);

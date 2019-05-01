@@ -41,6 +41,7 @@ public class Missile extends GameObject
                     sc.gameObjects.remove(w);
                     sc.phoneixO.remove(w);
                     sc.pSupply -= 2;
+                    sc.tMins += 2;
                 }
                 sc.gameObjects.remove(this);
             }

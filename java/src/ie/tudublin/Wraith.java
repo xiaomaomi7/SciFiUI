@@ -115,7 +115,12 @@ public class Wraith extends GameObject
             //sc.line(a.x, a.y, b.x, b.y);
         }
         sc.fill(255);    
-        sc.text("hp:" + health, pos.x + 50, pos.y);
+        //sc.text("hp:" + health, pos.x + 30, pos.y);
+        sc.fill(0,255,0);
+        int hpBarNo = health * 10 / sc.tHealth ;
+        for (int i = 0; i < hpBarNo; i ++){
+            sc.rect(pos.x + 30 + i * 2, pos.y, 2, 2);
+        }
     }
 
     int current = 0;

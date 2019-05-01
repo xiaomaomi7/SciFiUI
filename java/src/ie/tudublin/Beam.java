@@ -38,6 +38,7 @@ public class Beam extends GameObject
                     sc.gameObjects.remove(w);
                     sc.wraithO.remove(w);
                     sc.tSupply -= 2;
+                    sc.pMins += 2;
                 }
                 sc.gameObjects.remove(this);
             }

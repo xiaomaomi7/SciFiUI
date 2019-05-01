@@ -44,7 +44,13 @@ public class SC extends PApplet
     {
         return keys[c] || keys [Character.toUpperCase(c)];
     }
-    
+    public void mousePressed() {
+        if (mouseX < 100 && mouseY < 100) {
+
+        } else if (mouseX > 100 && mouseY > 100) {
+
+        }
+      }
     public void settings()
     {
         size(2500, 1500);        
@@ -71,9 +77,14 @@ public class SC extends PApplet
 
             pSupply += 2; tSupply += 2;
         }
+        for (int i = 0; i < 4; i++){
+            Button button = new Button(this, 200 , height * 5 / 7 + 75 + i * 100, 100, 50, "upgrade" );
+            buttonO.add(button);
+            Button button2 = new Button(this, width * 8 /10 + 200 , height * 5 / 7 + 75 + i * 100, 100, 50, "upgrade" );
+            buttonO.add(button2);
+        }
         
-        Button t1 = new Button(this, width /2 , height /2, width, height, "good day" );
-        buttonO.add(t1);
+        
         frame = new Frame(this);
     }
 
@@ -91,7 +102,7 @@ public class SC extends PApplet
         fill(0);
         textSize(100);
         fill(255);
-        text("Starcraft II", width /2 - 200 , 100);
+        text("Starcraft II", width /2 - 200 , 150);
         textSize(20);
         fill(255);
         text("Mineral: " + tMins, 50, 50);
@@ -100,6 +111,20 @@ public class SC extends PApplet
         text("Mineral: " + pMins, width - 200, 50);
         text("Supply: " + pSupply + "/" + pSupplyL, width - 200, 100);
         text("Score: " + scoreP, width - 200, 150);
+
+        textSize(30);
+        text("Protoss" , width / 10 * 9 - 50, height * 5 / 7 + 50);
+        text("Terran" , width / 10 * 1 - 50, height * 5 / 7 + 50);
+        textSize(20);
+        text("Attack:" + tAttack , 20, height * 5 / 7 + 100);
+        text("Armor:" + tArmor, 20, height * 5 / 7 + 200);
+        text("HP:" + tHealth, 20, height * 5 / 7 + 300);
+        text("Supply:" + tSupplyL, 20, height * 5 / 7 + 400);
+
+        text("Attack:" + pAttack , width * 8 /10 + 20, height * 5 / 7 + 100);
+        text("Armor:" + pArmor, width * 8 /10 + 20, height * 5 / 7 + 200);
+        text("HP:" + pHealth,width * 8 /10 + 20, height * 5 / 7 + 300);
+        text("Supply:" + pSupplyL, width * 8 /10 + 20, height * 5 / 7 + 400);
         for(int i= gameObjects.size() - 1; i >= 0; i--)
         {
             GameObject b = gameObjects.get(i);
@@ -111,7 +136,7 @@ public class SC extends PApplet
         {
             Button b = buttonO.get(i);
             b.render();
-            
+            textAlign(LEFT);
         }
         update();
     }   

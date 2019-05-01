@@ -1,9 +1,6 @@
 package ie.tudublin;
 
 
-
-import processing.core.PApplet;
-
 public class Frame 
 {
     protected SC sc;
