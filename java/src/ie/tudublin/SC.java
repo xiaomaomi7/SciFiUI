@@ -119,7 +119,7 @@ public void mouseMoved() {
     {
         size(2500, 1500);        
     }
-
+    
     public float randomX(){
         return(random(0,width));
     }
@@ -210,13 +210,13 @@ public void mouseMoved() {
         mTime += timeDelta;
         if (alive >= 3.0)
         {
-            if (pSupply < pSupplyL){
+            if (pSupply < pSupplyL - 1){
                 phoneix = new Phoneix(this, randomX(), randomY(), 5, 50);
                 gameObjects.add(phoneix);
                 phoneixO.add(phoneix);
                 pSupply += 2;
             }
-            if (tSupply < tSupplyL){
+            if (tSupply < tSupplyL - 1){
                 wraith = new Wraith(this, randomX(), randomY(), 5, 50);
                 gameObjects.add(wraith);
                 wraithO.add(wraith);
